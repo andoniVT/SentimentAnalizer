@@ -53,22 +53,33 @@ class VectorModel(object):
         self.__all_data =  xml.get_vector_tagged_comments()
         for i in self.__all_data:
             self.__comments.append(i[0])
-            self.__labels.append(i[1])
+            self.__labels.append(i[1])        
+        
 
         self.__vectorizer = CountVectorizer()
         vector = self.__vectorizer.fit_transform(self.__comments)
                         
         self.__corpus_simple_vector = vector.toarray()
-        file_name1 = "vector_model/vectorizerSimple.pk1"
+        
+        file_name1 = path + "/vectorizerSimple.pk1"
         with open(file_name1 , 'wb') as fid:
             cPickle.dump(self.__vectorizer , fid)
+        
+        file_name11 = path + "/simple_corpus.pk1"
+        with open(file_name11 , 'wb') as fid:
+            cPickle.dump(self.__corpus_simple_vector , fid)
 
         self.__transformer = TfidfTransformer()
         tfidf = self.__transformer.fit_transform(self.__corpus_simple_vector)
         self.__corpus_tf_idf = tfidf.toarray()
-        file_name2 = "vector_model/vectorizerTF_IDF.pk1"
+        file_name2 = path + "/vectorizerTF_IDF.pk1"
         with open(file_name2 , 'wb') as fid:
             cPickle.dump(self.__transformer , fid)
+        
+        file_name22 = path + "/tf_idf_corpus.pk1"
+        with open(file_name22 , 'wb') as fid:
+            cPickle.dump(self.__corpus_tf_idf , fid)
+                
         
     def get_comment_frequency_vector(self , comments):
         vectores = []
@@ -109,13 +120,17 @@ class VectorModel(object):
 if __name__ == '__main__':    
      
     xml_file = prueba
-    '''
+    
     model = VectorModel(xml_file , 3 , 1)
     
-    comentario = ["Y ese jugador q tanto admira la aficion y no da la cara cuando hay q estar. Si no siente los colores q se vaya. Mas huevos. Leo Messi"]
-    print model.get_comment_frequency_vector(comentario)
-    print model.get__comment_tf_idf_vector(comentario)
-    '''
+    comentario = ["Agradezco a trabajadores y sindicatos la desconvocatoria de la huelga en el aeropuerto"]
+     
+    vec = model.get_comment_frequency_vector(comentario)
+    vec2 = model.get__comment_tf_idf_vector(comentario)
+    for i in vec2:
+        print i
+    
+    
     
     
     print "hello"
