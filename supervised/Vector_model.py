@@ -36,6 +36,18 @@ class VectorModel(object):
         self.__prepare_corpus()
 
     def __prepare_corpus(self): 
+        # 1 -> espanish   2-> peruvian
+        if self.__domain == 1:
+            if self.__nClasses == 2:
+                path = vector_models_two_classes
+            if self.__nClasses == 3:
+                path = vector_model_three_classes
+        else:
+            if self.__nClasses == 2:
+                path = 'falta'
+            if self.__nClasses == 3:
+                path = 'falta2'
+             
         
         xml = XML.Generator(self.__xml_file , True , self.__nClasses) 
         self.__all_data =  xml.get_vector_tagged_comments()
