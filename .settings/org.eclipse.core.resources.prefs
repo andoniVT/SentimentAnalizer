@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
 encoding//configuration/settings.py=utf-8
 encoding//preprocessing/Comment_proceser.py=utf-8
+encoding//preprocessing/Text_proceser.py=utf-8
+encoding//supervised/Supervised_classifier.py=utf-8
 encoding//supervised/Vector_model.py=utf-8

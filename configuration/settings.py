@@ -29,6 +29,8 @@ trainSpanish = path + '/data/train/theTrainSpanish.xml'
 trainPeruvian = path + '/data/train/theTrainPeruvian.xml'
 testSpanish = path + '/data/test/theTestSpanish.xml'
 testPeruvian = path + '/data/test/theTestPeruvian.xml'
+prueba = path + '/data/train/prueba.xml'
+
 
 '''
     suppervised classifiers
