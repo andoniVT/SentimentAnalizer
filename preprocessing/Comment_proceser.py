@@ -164,5 +164,7 @@ if __name__ == '__main__':
     for i in comentarios:
         procesador = Comment_proccesor(i , True)
         print procesador.get_processed_comment()
+    
+    print "hello World!"
 
 
