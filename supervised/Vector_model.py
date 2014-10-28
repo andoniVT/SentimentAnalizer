@@ -6,17 +6,13 @@ Created on 26/10/2014
 @author: Andoni Valverde Tohalino
 @email: andoni.valverde@ucsp.edu.pe
 '''
-
-#sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
-# -*- coding: utf-8 -*-
 import utils.Xml_generator as XML
 import preprocessing.Comment_proceser as CP
 from scipy import spatial
 import math
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.svm import LinearSVC
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.decomposition import TruncatedSVD as LSA
 import cPickle
 from configuration.settings import vector_models_two_classes , vector_model_three_classes , prueba
 
@@ -131,7 +127,4 @@ if __name__ == '__main__':
         print i
     
     
-    
-    
-    print "hello"
      
