@@ -15,7 +15,7 @@ path_cicc = '/home/ucsp/workspace/SentimentManager'
 #path_home = '/home/andoni/Dropbox/Ciencia de la Computacion/Semestre 2014-II/Seminario de Tesis/Propuesta-implementacion/CODE/SentimentAnalizer'
 path_home = '/home/andoni/Escritorio/PythonProjets/SentimentAnalizer'
 #path = path_cicc
-path = path_cicc
+path = path_home
 
 '''
     resource
