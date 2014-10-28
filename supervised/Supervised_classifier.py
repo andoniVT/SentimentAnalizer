@@ -32,6 +32,7 @@ class SuppervisedClassifier(object):
         self.domain = 0
         self.nClasses = 0
         self.model = 0
+        self.current_path = ''
 
     def train(self):
         pass 
@@ -63,29 +64,17 @@ class SuppervisedClassifier(object):
         self.model = model
         
     def define_path(self):
-        pass 
-
-
-class NaiveBayes(SuppervisedClassifier):
-    def __init__(self , data=None , labels=None):        
-        SuppervisedClassifier.__init__(self , data , labels)
-        print "--Naive Bayes--"
-        #self.file_name = "NaiveBayesCorpus.pk1"
-        self.file_name = default_path + naiveBayes
-    
-    def define_path(self):
-        SuppervisedClassifier.define_path(self)
         if self.domain == 1:
             if self.nClasses == 2:
-                if self.model == 1:
-                    print 1
-                else:
-                    print 2
+                if self.model == 1:                    
+                    self.current_path = spanish_classifiers_two_classes_simple
+                else:                    
+                    self.current_path = spanish_classifiers_two_classes_tf_idf
             if self.nClasses == 3:
-                if self.model == 1:
-                    print 1
+                if self.model == 1:                
+                    self.current_path = spanish_classifiers_three_classes_simple
                 else:
-                    print 2
+                    self.current_path = spanish_classifiers_three_classes_tf_idf
         else:
             if self.nClasses == 2:
                 if self.model == 1:
@@ -96,9 +85,19 @@ class NaiveBayes(SuppervisedClassifier):
                 if self.model == 1:
                     print 1
                 else:
-                    print 2
+                    print 2 
 
 
+class NaiveBayes(SuppervisedClassifier):
+    def __init__(self , data=None , labels=None):        
+        SuppervisedClassifier.__init__(self , data , labels)
+        print "--Naive Bayes--"
+        self.file_name = default_path + naiveBayes
+    
+    def define_path(self):
+        SuppervisedClassifier.define_path(self)        
+        self.file_name = self.current_path + naiveBayes
+        
     def train(self):
         super(NaiveBayes , self).train()
         self.classifier = MultinomialNB()
@@ -118,9 +117,12 @@ class SVM(SuppervisedClassifier):
     def __init__(self , data=None , labels=None):        
         SuppervisedClassifier.__init__(self , data , labels)
         print "--Support Vector Machine--"
-        #self.file_name = "SVMCorpus.pk1"
         self.file_name = default_path + svm
 
+    def define_path(self):
+        SuppervisedClassifier.define_path(self)        
+        self.file_name = self.current_path + svm        
+        
     def train(self):
         super(SVM , self).train()
         self.classifier = LinearSVC()
@@ -140,10 +142,12 @@ class DecisionTree(SuppervisedClassifier):
     def __init__(self , data=None , labels=None):
         SuppervisedClassifier.__init__(self, data, labels)
         print "--Decision Tree--"
-        #self.file_name = "DecisionTreeCorpus.pk1"
         self.file_name = default_path + decTree
-        print self.domain
-
+    
+    def define_path(self):
+        SuppervisedClassifier.define_path(self)        
+        self.file_name = self.current_path + decTree        
+        
     def train(self):
         super(DecisionTree , self).train()
         self.classifier = DecisionTreeClassifier()
@@ -162,10 +166,13 @@ class DecisionTree(SuppervisedClassifier):
 class MaxEnt(SuppervisedClassifier):
     def __init__(self, data=None , labels=None):
         SuppervisedClassifier.__init__(self , data, labels)
-        print "-- Entropia Maxima--"
-        #self.file_name = "MaxEntCorpus.pk1"
+        print "-- Entropia Maxima--"        
         self.file_name = default_path + maxEntropia
 
+    def define_path(self):
+        SuppervisedClassifier.define_path(self)        
+        self.file_name = self.current_path + maxEntropia        
+        
     def train(self):
         super(MaxEnt , self).train()
         self.classifier = LogisticRegression()
@@ -181,36 +188,16 @@ class MaxEnt(SuppervisedClassifier):
             predictions.append(value)
         return predictions
 
-if __name__ == '__main__':
-    
-    
-    xml_file = "este_XML.xml"
+if __name__ == '__main__':    
+    '''
+    path values:
+      * domain:  spanish(1) - peruvian(2)
+      * nClasses: 2-classes (2)  - 3-classes (3)
+      * model:    vectorial (1) - tfidf(2)
+    '''    
     vec = [[1,2,3,4,5] ,[1,2,3,4,5], [1,2,3,4,5] ,[1,2,3,4,5] ,[1,2,3,4,5] ]
     labels =  [1 , 0 , 1, 0 , 0]
-    dt = DecisionTree(vec, labels)
-    dt.set_path_values(1 , 2)
-    dt.train()
-    print dt.domain
-    print dt.nClasses
-    
-    '''
-    model = VM.VectorModel(xml_file)
-    data =  model.get_tf_idf_corpus()
-    vector = data[0]
-    labels = data[1]
-
-    svm = MaxEnt(vector , labels)
-    svm.train()
-    vec = []
-    for i in range(409):
-        vec.append(i)
-
-    print svm.classify([vec])
-
-    a = MaxEnt()
-    print a.classify([vec])
-    '''
-
-    #dt = DecisionTree(vector , labels)
-
-     
+    dt = MaxEnt(vec, labels)
+    dt.set_path_values(1 , 2 , 1)
+    dt.define_path()
+    dt.train()     
