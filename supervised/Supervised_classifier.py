@@ -31,6 +31,7 @@ class SuppervisedClassifier(object):
         self.file_name = ""
         self.domain = 0
         self.nClasses = 0
+        self.model = 0
 
     def train(self):
         pass 
@@ -56,9 +57,13 @@ class SuppervisedClassifier(object):
     def imprime(self):
         print self.file_name
     
-    def set_path_values(self , domain , nClasses):
+    def set_path_values(self , domain , nClasses , model):
         self.domain = domain
         self.nClasses = nClasses 
+        self.model = model
+        
+    def define_path(self):
+        pass 
 
 
 class NaiveBayes(SuppervisedClassifier):
@@ -67,6 +72,32 @@ class NaiveBayes(SuppervisedClassifier):
         print "--Naive Bayes--"
         #self.file_name = "NaiveBayesCorpus.pk1"
         self.file_name = default_path + naiveBayes
+    
+    def define_path(self):
+        SuppervisedClassifier.define_path(self)
+        if self.domain == 1:
+            if self.nClasses == 2:
+                if self.model == 1:
+                    print 1
+                else:
+                    print 2
+            if self.nClasses == 3:
+                if self.model == 1:
+                    print 1
+                else:
+                    print 2
+        else:
+            if self.nClasses == 2:
+                if self.model == 1:
+                    print 1
+                else: 
+                    print 2
+            if self.nClasses == 3:
+                if self.model == 1:
+                    print 1
+                else:
+                    print 2
+
 
     def train(self):
         super(NaiveBayes , self).train()
