@@ -36,7 +36,6 @@ class VectorModel(object):
         self.__corpus_lsa = vec_lsa
                         
     def get_comment_frequency_vector(self , comments):
-        vectores = []
         vec_comments = []
         for i in comments:
             vec_comments.append(i)
