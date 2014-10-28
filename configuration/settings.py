@@ -12,9 +12,10 @@ Created on 26/10/2014
 '''
 #path_cicc = '/home/ucsp/Dropbox/Propuesta-implementacion/CODE/SentimentAnalizer'
 path_cicc = '/home/ucsp/workspace/SentimentManager'
-path_home = '/home/andoni/Dropbox/Ciencia de la Computacion/Semestre 2014-II/Seminario de Tesis/Propuesta-implementacion/CODE/SentimentAnalizer'
-path = path_cicc
+#path_home = '/home/andoni/Dropbox/Ciencia de la Computacion/Semestre 2014-II/Seminario de Tesis/Propuesta-implementacion/CODE/SentimentAnalizer'
+path_home = '/home/andoni/Escritorio/PythonProjets/SentimentAnalizer'
 #path = path_cicc
+path = path_cicc
 
 '''
     resource
