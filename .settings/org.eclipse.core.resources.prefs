@@ -4,4 +4,5 @@ encoding//preprocessing/Comment_proceser.py=utf-8
 encoding//preprocessing/Text_proceser.py=utf-8
 encoding//supervised/Supervised_classifier.py=utf-8
 encoding//supervised/Vector_model.py=utf-8
+encoding//unsupervised/corpus.py=utf-8
 encoding/vector_model.py=utf-8

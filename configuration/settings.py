@@ -45,6 +45,7 @@ vspanish_path = path + '/data_trained/vector_model/spanish'
 vector_models_two_classes =  vspanish_path + '/2_classes'
 vector_model_three_classes = vspanish_path + '/3_classes'
 
+
 ''' unsupervised '''
 # Recursos Lexicos 
 #NEW_VOCABULARY = "path + '/resource/dictionary/groups/"
@@ -56,6 +57,24 @@ NEGATING_WORDS_SPANISH = path + "/resource/negating_words_spanish.txt"
 COMBINATIONS_SPANISH  = path + "/resource/combinations_spanish.txt"
 COMBINATIONS_SLANGS_PERUVIAN = path + "resource/combinations_slangs_peruvian.txt"
 PUNCTUATION = path + "resource/punctuation.txt"
+
+# Tipos de Terminos
+TERM_TYPE_EMOTICON = 'emoticon'
+TERM_TYPE_BOOSTER = 'booster'
+TERM_TYPE_WORD_SLANG = 'word_slang'
+TERM_TYPE_COMBINATION = 'combination'
+TERM_TYPE_NEGATING = 'negating'
+TERM_TYPE_PUNCTUATION = 'punctuation'
+TERM_TYPE_NEUTRO = 'neutro'
+
+# Simbolos adicionales
+FLEXIS_SIMBOL = '#'
+SPLITTER_WEIGHTS = '=='
+ENCODING = 'utf-8'
+TERM_NOT_FOUND = ''
+SPLITTER_FREQUENT_WORD = '<##>'
+
+
 
 
 if __name__ == '__main__':
