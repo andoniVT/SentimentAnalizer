@@ -8,7 +8,7 @@ Created on 26/10/2014
 '''
 
 import utils.Xml_generator as XML
-import Comment_proceser as CP
+import preprocessing.Comment_proceser as CP
 
 class Processor(object):
 

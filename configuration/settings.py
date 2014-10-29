@@ -55,8 +55,9 @@ SENTIMENT_WORDS_SPANISH = path + "/resource/sentiment_words_spanish.txt"
 SLANGS_PERUVIAN = path + "/resource/slangs_peruvian.txt"
 NEGATING_WORDS_SPANISH = path + "/resource/negating_words_spanish.txt"
 COMBINATIONS_SPANISH  = path + "/resource/combinations_spanish.txt"
-COMBINATIONS_SLANGS_PERUVIAN = path + "resource/combinations_slangs_peruvian.txt"
-PUNCTUATION = path + "resource/punctuation.txt"
+COMBINATIONS_SLANGS_PERUVIAN = path + "/resource/combinations_slangs_peruvian.txt"
+PUNCTUATION = path + "/resource/punctuation.txt"
+STOPWORDS_SPANISH_OPINION_MINING = path + "/resource/stopwords_spanish_opinion_mining.txt"
 
 # Tipos de Terminos
 TERM_TYPE_EMOTICON = 'emoticon'

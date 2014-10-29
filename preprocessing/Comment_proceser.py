@@ -9,14 +9,15 @@ Created on 26/10/2014
 import re
 import unicodedata
 from unicodedata import normalize
-from utils.split import separar
+#from utils.split import separar
+from preprocessing.split import separar
 import snowballstemmer
 from configuration.settings import stop_words 
 
 stopWordFile = stop_words
 
 class Comment_proccesor(object):
-    def __init__(self, comment , flag):
+    def __init__(self, comment="" , flag=0):
         self.__comment = comment
         self.__flag = flag
         self.__new_comment = self.process_comment(self.__comment)
@@ -138,8 +139,19 @@ class Comment_proccesor(object):
         if len(result) == 0:
             return "None!"
         else:
-            #return self.lemmatized_comment(result)
-            return result
+            return self.lemmatized_comment(result)
+            #return result
+    
+    def remove_punctuation_marks(self , word):
+        """ Elimina los signos de puntuacion de un texto """
+        if re.match("^[a-z0-9\xE1\xE9\xED\xF3\xFA\xF1]+$", word):
+            return word
+        else:
+            new_word = ""
+            for i in range(len(word)):
+                if re.match("[\w\xE1\xE9\xED\xF3\xFA\xF1]", word[i]):
+                    new_word += word[i]
+            return new_word 
 
     def get_processed_comment(self):
         return self.__new_comment
