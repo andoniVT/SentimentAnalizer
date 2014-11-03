@@ -10,18 +10,18 @@ Created on 26/10/2014
 ''' path  '''
 path_cicc = '/home/ucsp/workspace/SentimentManager'
 path_home = '/home/andoni/Escritorio/PythonProjets/SentimentAnalizer'
-#path = path_cicc
-path = path_home
+path = path_cicc
+#path = path_home
 
 '''resource '''
 big_text = path + '/resource/big2.txt'
 stop_words = path + '/resource/stopwords_spanish.txt'
 
 ''' data test and training '''
-trainSpanish = path + '/data/train/theTrainSpanish.xml'
-trainPeruvian = path + '/data/train/theTrainPeruvian.xml'
-testSpanish = path + '/data/test/theTestSpanish.xml'
-testPeruvian = path + '/data/test/theTestPeruvian.xml'
+trainSpanish = path + '/data/train/spanishTrain.xml'
+trainPeruvian = path + '/data/train/peruvianTrain.xml'
+testSpanish = path + '/data/test/spanishTest.xml'
+testPeruvian = path + '/data/test/peruvianTest.xml'
 prueba = path + '/data/train/prueba.xml'
 
 
