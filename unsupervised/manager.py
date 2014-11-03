@@ -68,7 +68,7 @@ class UnsupervisedManager:
 if __name__ == '__main__':
     
      
-    classifier = UnsupervisedManager(settings.testSpanish)
+    classifier = UnsupervisedManager(settings.trainSpanish)
     predicted = classifier.classify_multiple_comments()
     classifier.show_report(predicted)
     
