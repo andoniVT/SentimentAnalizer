@@ -39,16 +39,6 @@ class Generator(object):
                 polaridad = child[2].text
                 value = (texto , polaridad)
                 self.__vector_tagged_comments.append(value)         
-    '''
-    def __get_tagged_data(self):        
-        tree = ET.parse(self.__xml_file)
-        root = tree.getroot()
-        for child in root:
-            texto = child[1].text
-            polaridad = child[2].text
-            value = (texto , polaridad)
-            self.__vector_tagged_comments.append(value)        
-    '''
 
     def __get_non_tagged_data(self):
         tree = ET.parse(self.__xml_file)
